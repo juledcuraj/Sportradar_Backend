@@ -9,7 +9,6 @@
     <title>Sportradar</title>
     <link rel="stylesheet" href="styles.css">
     <script>
-        // Output PHP messages to the console
         const messages = <?php echo json_encode($consoleMessages); ?>;
         messages.forEach(message => console.log(message));
     </script>
@@ -21,7 +20,6 @@
 
     <?php include 'nav.php'; ?>
 
-    <!-- Content for the welcome page -->
     <main class="main-content">
         <div class="welcome-section">
             <h2>Welcome to Sportradar</h2>

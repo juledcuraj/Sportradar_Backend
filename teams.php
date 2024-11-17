@@ -1,20 +1,17 @@
 <?php
-include 'db_connection.php'; // Include your database connection
+include 'db_connection.php';
 
-// Query to fetch team details
 $sql = "SELECT Name, Official_Name, Slug, Abbreviation, Team_Country_Code, Stage_Position FROM Team";
 $result = $conn->query($sql);
 
 $teams = [];
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        // Replace NULL with 'N/A' for display purposes
         $row['Official_Name'] = $row['Official_Name'] ?: 'N/A';
         $row['Slug'] = $row['Slug'] ?: 'N/A';
         $row['Abbreviation'] = $row['Abbreviation'] ?: 'N/A';
         $row['Team_Country_Code'] = $row['Team_Country_Code'] ?: 'N/A';
         $row['Stage_Position'] = $row['Stage_Position'] ?: 'N/A';
-        
         $teams[] = $row;
     }
 }
@@ -28,7 +25,7 @@ $conn->close();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teams</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>

@@ -1,11 +1,9 @@
 <?php
-include 'db_connection.php'; // Include your database connection
+include 'db_connection.php';
 
-// Check if the match ID is provided in the URL
 if (isset($_GET['match_id'])) {
     $matchId = $_GET['match_id'];
 
-    // Query to fetch the event details by Match ID
     $sql = "SELECT 
                 m.Date_Venue, 
                 m.Time_Venue_UTC, 
@@ -20,19 +18,14 @@ if (isset($_GET['match_id'])) {
             JOIN Stage s ON m.Stage_ID_foreignkey = s.Stage_ID
             WHERE m.Match_ID = ?";
 
-    // Prepare the SQL statement
     if ($stmt = $conn->prepare($sql)) {
-        // Bind the match ID to the query
         $stmt->bind_param("i", $matchId);
 
-        // Execute the query
         if ($stmt->execute()) {
-            // Bind the results to variables
             $stmt->bind_result($date, $time, $sport, $homeTeam, $awayTeam, $stage, $competitionName);
 
-            // Fetch the data if it exists
             if ($stmt->fetch()) {
-                $stmt->close(); // Close the statement
+                $stmt->close();
             } else {
                 die("No match found for the provided ID.");
             }
@@ -46,7 +39,7 @@ if (isset($_GET['match_id'])) {
     die("Match ID not provided.");
 }
 
-$conn->close(); // Close the database connection
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +49,7 @@ $conn->close(); // Close the database connection
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Details</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
