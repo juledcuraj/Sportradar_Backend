@@ -1,0 +1,1 @@
+{"version":1,"defects":{"EventTest::testDatabaseConnection":8,"EventTest::testEventInsertion":8,"DatabaseTest::testDatabaseConnection":7,"DatabaseTest::testEventInsertion":8},"times":{"EventTest::testDatabaseConnection":0,"EventTest::testEventInsertion":0.006,"DatabaseTest::testDatabaseConnection":0.005,"DatabaseTest::testEventInsertion":0.013}}

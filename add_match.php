@@ -7,7 +7,7 @@ $stagesResult = $conn->query("SELECT Stage_ID, Name FROM Stage");
 $teams = $teamsResult->fetch_all(MYSQLI_ASSOC);
 $stages = $stagesResult->fetch_all(MYSQLI_ASSOC);
 
-$message = ''; // Initialize an empty message variable for the popup
+$message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $season = $_POST['season'];
@@ -62,7 +62,6 @@ $conn->close();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Match</title>
     <link rel="stylesheet" href="styles.css">
