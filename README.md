@@ -10,6 +10,8 @@ Prerequisites
 
 •	PHP (version 8.2 or higher)
 
+•	JavaScript
+
 •	MySQL
 
 •	Composer
